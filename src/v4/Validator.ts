@@ -63,10 +63,7 @@ export default class Validator {
 		}
 
 		const ourSig = this.signer.sign(request.method, request.url, request.headers, theirSig.credential, user.secretKey, theirSig.signedHeaders);
-		console.log({
-			theirSig,
-			ourSig
-		});
+
 		if (ourSig.signature !== theirSig.signature) {
 			const error = new Error("The request signature that the server calculated does not match the signature that you provided.");
 			error.name = "SignatureDoesNotMatch";

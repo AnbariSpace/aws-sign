@@ -29,9 +29,6 @@ export default class Signer {
 		signedHeaders.sort();
 
 		const canonicalRequest = this.getCanonicalRequest(method, url, headers, signedHeaders, contentHash);
-		console.log({
-			canonicalRequest
-		});
 		const stringToSign = this.getStringToSign(canonicalRequest, credential);
 		const signingKey = this.getSigningKey(credential, secretKey);
 		const signature = createHmac('sha256', signingKey).update(stringToSign).digest('hex').toLowerCase();
