@@ -1,0 +1,6 @@
+/src/
+/tests/
+/coverage/
+/.github/
+/jest.config.js
+/tsconfig*.json

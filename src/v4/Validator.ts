@@ -74,7 +74,7 @@ export default class Validator {
 		}
 		const contentSha256 = request.headers["x-amz-content-sha256"];
 
-		if (contentSha256 === undefined) {
+		if (typeof contentSha256 !== "string") {
 			const error = new Error("Missing x-amz-content-sha256 header.");
 			error.name = "InvalidRequest";
 			throw error;
